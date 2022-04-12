@@ -1,7 +1,6 @@
 package com.woofWalkers.services;
 
 import com.woofWalkers.models.Dog;
-import com.woofWalkers.models.User;
 
 import java.util.List;
 
@@ -10,7 +9,7 @@ public interface DogService {
 
     void saveDog(Dog dog);
 
-    User getDogById(long id);
+    Dog getDogById(long id);
 
     void deleteDogById(long id);
 

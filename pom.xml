@@ -57,6 +57,46 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-starter</artifactId>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>au.com.dius.pact.core</groupId>
+			<artifactId>matchers</artifactId>
+			<version>4.3.6</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.7.Final</version>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>constraints</groupId>-->
+<!--			<artifactId>constraints</artifactId>-->
+<!--			<version>0.1.10</version>-->
+<!--			<scope>compile</scope>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>

@@ -2,6 +2,8 @@ package com.woofWalkers.models;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user", uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
@@ -21,6 +23,9 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user", targetEntity = Dog.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<Dog> dog = new HashSet<>();
 
 //    @Column(name = "confirmPassword")
 //    private String confirmPassword;

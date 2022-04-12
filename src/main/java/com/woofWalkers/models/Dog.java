@@ -8,7 +8,11 @@ public class Dog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
     @Column(name = "dog_name")
     private String dogName;
