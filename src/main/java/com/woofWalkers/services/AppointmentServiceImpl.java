@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AppointmentServicveImpl implements AppointmentService{
+public class AppointmentServiceImpl implements AppointmentService{
 
     private AppointmentRepository appointmentRepository;
 
     @Autowired
-    public AppointmentServicveImpl(AppointmentRepository appointmentRepository) {this.appointmentRepository = appointmentRepository;}
+    public AppointmentServiceImpl(AppointmentRepository appointmentRepository) {this.appointmentRepository = appointmentRepository;}
 
     @Override
     public List<Appointment> getAllAppointments() {return appointmentRepository.findAll();}

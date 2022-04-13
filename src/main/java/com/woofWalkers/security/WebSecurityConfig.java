@@ -26,9 +26,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .mvcMatchers("/showDogFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/showDogForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/saveDog/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/allAppointments/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/showAppointmentFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers("/showAppointmentForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showNewAppointmentForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .mvcMatchers("/saveAppointment/**").hasAnyRole("ADMIN", "SUPERADMIN")
+
                 .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .anyRequest().authenticated()
                 .and()
