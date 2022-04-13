@@ -26,13 +26,13 @@
 
 <!--    <form th:action="@{/saveAppointment}" th:object="${appointment}" onsubmit="return checkForm(this);" id="appointmentForm" method="POST">-->
         <form th:action="@{/saveAppointment}" th:object="${appointment}" id="appointmentForm" method="POST">
-        <input type="date" field="*{appointmentDate}" name="appointmentDate" placeholder="Appointment Date" class="form-control mb-4 col-4" required>
+        <input type="date" th:field="*{appointmentDate}" name="appointmentDate" placeholder="Appointment Date" class="form-control mb-4 col-4" required>
 
-        <input type="time" field="*{appointmentTime}" name="appointmentTime" placeholder="Appointment Time" class="form-control mb-4 col-4" required>
+        <input type="time" th:field="*{appointmentTime}" name="appointmentTime" placeholder="Appointment Time" class="form-control mb-4 col-4" required>
 
-        <input type="text" field="*{dogId}" name="dogId" placeholder="Dog Id" id="dogId" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{dog.id}" name="dogId" placeholder="Dog Id" id="dogId" class="form-control mb-4 col-4" required>
 
-        <input type="text" field="*{userId}" name="userId" placeholder="User Id" id="userId" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{user.id}" name="userId" placeholder="User Id" id="userId" class="form-control mb-4 col-4" required>
         <br>
         <br>
         <button id="signupSubmit" type="submit" class="btn btn-info col-2"> Save Appointment</button>
