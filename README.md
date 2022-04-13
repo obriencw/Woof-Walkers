@@ -2,6 +2,8 @@
 
 
 ## Daily Progress
+* April 13 (35% done)
+  * Updated CRUD operations for Appointment but unable to save date and time
 * April 12 (25-30% done)
   * Added Dog model, DogRepository, DogService, and DogServiceImpl
   * Implemented CRUD operations for Dog
