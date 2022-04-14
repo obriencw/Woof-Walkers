@@ -17,10 +17,10 @@ public class Appointment {
     private User user;
 
     @Column(name = "date")
-    private Date appointmentDate;
+    private String appointmentDate;
 
     @Column(name = "time")
-    private Time appointmentTime;
+    private String appointmentTime;
 
     @ManyToOne
     @JoinColumn(name = "dogId")
@@ -45,19 +45,19 @@ public class Appointment {
         this.user = user;
     }
 
-    public Date getAppointmentDate() {
+    public String getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(Date appointmentDate) {
+    public void setAppointmentDate(String appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 
-    public Time getAppointmentTime() {
+    public String getAppointmentTime() {
         return appointmentTime;
     }
 
-    public void setAppointmentTime(Time appointmentTime) {
+    public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 

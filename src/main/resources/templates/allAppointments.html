@@ -23,13 +23,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr each="appointment : ${listAppointments}">
-            <td text="${appointment.appointmentDate}"></td>
-            <td text="${appointment.appointmentTime}"></td>
-            <td text="${dog.dogId}"></td>
-            <td text="${user.userId}"></td>
-            <td> <a href="@{/showAppointmentFormForUpdate/{id}(id=${appointment.id})}" class="btn btn-primary">Update</a>
-                <a href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete</a>
+        <tr th:each="appointment : ${listAppointments}">
+            <td th:text="${appointment.appointmentDate}"></td>
+            <td th:text="${appointment.appointmentTime}"></td>
+            <td th:text="${appointment.dog.dogName}"></td>
+            <td th:text="${appointment.user.firstName}"></td>
+            <td> <a th:href="@{/showAppointmentFormForUpdate/{id}(id=${appointment.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
