@@ -1,6 +1,6 @@
 package com.woofWalkers.controller;
 
-import com.woofWalkers.models.User;
+import com.woofWalkers.userRegistrationSecurity.User;
 import com.woofWalkers.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 @Controller
 public class UsersController {

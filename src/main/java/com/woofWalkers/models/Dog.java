@@ -1,5 +1,7 @@
 package com.woofWalkers.models;
 
+import com.woofWalkers.userRegistrationSecurity.User;
+
 import javax.persistence.*;
 
 @Entity

@@ -1,7 +1,11 @@
-package com.woofWalkers.models;
+package com.woofWalkers.userRegistrationSecurity;
+
+import com.woofWalkers.models.Dog;
+import com.woofWalkers.userRegistrationSecurity.Role;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,6 +31,15 @@ public class User {
     @OneToMany(mappedBy = "user", targetEntity = Dog.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Set<Dog> dog = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
+
 //    @Column(name = "confirmPassword")
 //    private String confirmPassword;
 
@@ -40,6 +53,14 @@ public class User {
         this.email = email;
         this.password = password;
 //        this.confirmPassword = confirmPassword;
+    }
+
+    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
     }
 
     public Long getId() {
@@ -80,6 +101,26 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "com.example.demo.security.User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + "*********" + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 
 //    public String getConfirmPassword() {

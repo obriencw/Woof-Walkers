@@ -1,8 +1,8 @@
 package com.woofWalkers.models;
 
+import com.woofWalkers.userRegistrationSecurity.User;
+
 import javax.persistence.*;
-import java.sql.Time;
-import java.util.Date;
 
 @Entity
 @Table(name = "appointment")

@@ -1,6 +1,6 @@
 package com.woofWalkers.services;
 
-import com.woofWalkers.models.User;
+import com.woofWalkers.userRegistrationSecurity.User;
 import com.woofWalkers.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

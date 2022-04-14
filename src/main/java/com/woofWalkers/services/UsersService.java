@@ -1,7 +1,6 @@
 package com.woofWalkers.services;
 
-import com.woofWalkers.models.User;
-import org.springframework.stereotype.Service;
+import com.woofWalkers.userRegistrationSecurity.User;
 
 import java.util.List;
 public interface UsersService {

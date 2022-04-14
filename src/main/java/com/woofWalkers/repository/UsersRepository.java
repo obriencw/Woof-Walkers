@@ -1,7 +1,7 @@
 package com.woofWalkers.repository;
 
 
-import com.woofWalkers.models.User;
+import com.woofWalkers.userRegistrationSecurity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
