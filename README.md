@@ -2,6 +2,10 @@
 
 
 ## Daily Progress
+* April 14 (55% done)
+  * Completed CRUD operations for Appointment
+  * All basic CRUD operations completed
+  * Started implementing user registration
 * April 13 (35% done)
   * Updated CRUD operations for Appointment but unable to save date and time
 * April 12 (25-30% done)
