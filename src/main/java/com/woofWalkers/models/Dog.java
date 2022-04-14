@@ -9,7 +9,7 @@ public class Dog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
@@ -26,18 +26,18 @@ public class Dog {
     public Dog() {
     }
 
-    public Dog(long id, String dogName, String dogBreed, String dogSex) {
+    public Dog(Long id, String dogName, String dogBreed, String dogSex) {
         this.id = id;
         this.dogName = dogName;
         this.dogBreed = dogBreed;
         this.dogSex = dogSex;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
