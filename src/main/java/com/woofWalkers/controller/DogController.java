@@ -2,6 +2,9 @@ package com.woofWalkers.controller;
 
 import com.woofWalkers.models.Dog;
 import com.woofWalkers.services.DogService;
+import com.woofWalkers.services.UsersService;
+import com.woofWalkers.userRegistrationSecurity.User;
+import com.woofWalkers.userRegistrationSecurity.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,16 +13,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class DogController {
     private DogService dogService;
+    private UsersService usersService;
 
     @Autowired
-    public DogController(DogService dogService) {this.dogService = dogService;}
+    public DogController(DogService dogService, UsersService usersService) {this.dogService = dogService;
+        this.usersService = usersService;
+    }
 
     @GetMapping("/allDogs")
     public String getAllDogs(Model model) {
@@ -35,11 +41,14 @@ public class DogController {
     }
 
     @PostMapping("/saveDog")
-    public String saveDog(@ModelAttribute("dog") @Valid Dog dog, BindingResult bindingResult) {
+    public String saveDog(@ModelAttribute("dog") @Valid Dog dog, BindingResult bindingResult, Principal principal) {
+        User currentUser = usersService.findByEmail(principal.getName());
         if (bindingResult.hasErrors()) {
             return "new_dog";
         }
-        dogService.saveDog(dog);
+        Dog saveDog = dogService.saveDog(dog);
+        currentUser.getDog().add(saveDog);
+        usersService.saveUser(currentUser);
         return "redirect:/allDogs";
     }
     @GetMapping("/showDogFormForUpdate/{id}")

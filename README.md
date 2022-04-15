@@ -2,6 +2,8 @@
 
 
 ## Daily Progress
+* April 15 (60% done)
+  * Added feature that when a user registers a dog, that dog is registered to the current user who is logged in
 * April 14 (55% done)
   * Completed CRUD operations for Appointment
   * All basic CRUD operations completed

@@ -12,9 +12,9 @@ public class Dog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "userId")
+//    private User user;
 
     @Column(name = "dog_name")
     private String dogName;
@@ -66,4 +66,12 @@ public class Dog {
     public void setDogSex(String dogSex) {
         this.dogSex = dogSex;
     }
+
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }

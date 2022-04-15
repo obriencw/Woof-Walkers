@@ -19,8 +19,8 @@ public class DogServiceImpl implements DogService{
     public List<Dog> getAllDogs() { return dogRepository.findAll();}
 
     @Override
-    public void saveDog(Dog dog)
-    { dogRepository.save(dog); }
+    public Dog saveDog(Dog dog)
+    { return dogRepository.save(dog);}
 
 
     @Override

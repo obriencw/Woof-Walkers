@@ -1,7 +1,9 @@
 package com.woofWalkers.controller;
 
+import com.woofWalkers.services.DogService;
 import com.woofWalkers.userRegistrationSecurity.User;
 import com.woofWalkers.services.UsersService;
+import org.hibernate.event.spi.PreInsertEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class UsersController {
@@ -22,7 +25,7 @@ public class UsersController {
     @Autowired
     public UsersController(UsersService usersService) {this.usersService = usersService;}
 
-    @GetMapping("/")
+    @GetMapping("/allUsers")
     public String getAllUsers(Model model) {
         model.addAttribute("listUsers", usersService.getAllUsers());
         return "index";
@@ -70,15 +73,22 @@ public class UsersController {
         return "redirect:/";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
+    @GetMapping("/profile")
+    public String getUserDogs(Model model, Principal principal) {
+        User currentUser = usersService.findByEmail(principal.getName());
+        model.addAttribute("listDogs", currentUser.getDog());
+        return "profile";
     }
 
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
-        HttpSession httpSession = request.getSession();
-        httpSession.invalidate();
-        return "logout";
-    }
+//    @GetMapping("/login")
+//    public String login() {
+//        return "login";
+//    }
+
+//    @GetMapping("/logout")
+//    public String logout(HttpServletRequest request){
+//        HttpSession httpSession = request.getSession();
+//        httpSession.invalidate();
+//        return "logout";
+//    }
 }

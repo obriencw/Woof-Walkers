@@ -26,17 +26,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/js/**",
                         "/css/**",
                         "/img/**",
-                        "/webjars/**").permitAll()
+                        "/webjars/**"
+                ).permitAll()
+                .antMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .antMatchers("/showNewDogForm").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/profile", true)
+
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/logout")
                 .permitAll();
         // @formatter:on
     }

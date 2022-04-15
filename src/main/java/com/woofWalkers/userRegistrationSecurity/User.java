@@ -28,8 +28,16 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user", targetEntity = Dog.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToMany(targetEntity = Dog.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Set<Dog> dog = new HashSet<>();
+
+    public Set<Dog> getDog() {
+        return dog;
+    }
+
+    public void setDog(Set<Dog> dog) {
+        this.dog = dog;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
