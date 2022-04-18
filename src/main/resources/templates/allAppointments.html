@@ -75,7 +75,7 @@
             <td th:text="${appointment.appointmentTime}"></td>
             <td th:text="${appointment.dog.dogName}"></td>
 <!--            <td th:text="${appointment.user.firstName}"></td>-->
-            <td> <a th:href="@{/showAppointmentFormForUpdate/{id}(id=${appointment.id})}" class="btn btn-primary">Update</a>
+            <td> <a th:href="@{/adminShowAppointmentFormForUpdate/{id}(id=${appointment.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>

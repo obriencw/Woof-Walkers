@@ -29,6 +29,21 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "City")
+    private String city;
+
+    @Column(name = "State")
+    private String state;
+
+    @Column(name = "Zipcode")
+    private String zipcode;
+
+    @Column(name = "Phone_Number")
+    private String phoneNumber;
+
     @OneToMany(targetEntity = Dog.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Set<Dog> dog = new HashSet<>();
 
@@ -66,20 +81,30 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String email, String password, String confirmPassword) {
+    public User(Long id, String firstName, String lastName, String email, String password, String confirmPassword, String address, String city, String state, String zipcode, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
 //        this.confirmPassword = confirmPassword;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.phoneNumber = phoneNumber;
     }
 
-    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+    public User(String firstName, String lastName, String email, String password, Collection<Role> roles, String address, String city, String state, String zipcode, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.phoneNumber = phoneNumber;
         this.roles = roles;
     }
 
@@ -151,5 +176,44 @@ public class User {
 //        this.confirmPassword = confirmPassword;
 //    }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
 }
 

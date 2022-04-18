@@ -58,6 +58,14 @@ public class DogController {
         return "update_dog";
     }
 
+    @GetMapping("/adminShowDogFormForUpdate/{id}")
+    public String adminShowDogFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+
+        Dog dog = dogService.getDogById(id);
+        model.addAttribute("dog", dog);
+        return "admin_update_dog";
+    }
+
     @GetMapping("/deleteDog/{id}")
     public String deleteDog(@PathVariable(value = "id") long id) {
         this.dogService.deleteDogById(id);

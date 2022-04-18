@@ -24,7 +24,7 @@ public class UsersController {
     @GetMapping("/allUsers")
     public String getAllUsers(Model model) {
         model.addAttribute("listUsers", usersService.getAllUsers());
-        return "index";
+        return "index1";
     }
 
     @GetMapping("/showNewUserForm")

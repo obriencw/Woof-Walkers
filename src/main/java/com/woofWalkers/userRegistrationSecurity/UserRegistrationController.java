@@ -37,6 +37,8 @@ public class UserRegistrationController {
             return "registration";
         }
 
+        System.out.println(userDto.toString());
+
         userService.save(userDto);
         return "redirect:/profile?success";
     }

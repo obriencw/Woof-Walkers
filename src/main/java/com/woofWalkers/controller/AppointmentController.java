@@ -57,6 +57,14 @@ public class AppointmentController {
         return "update_appointment";
     }
 
+    @GetMapping("/adminShowAppointmentFormForUpdate/{id}")
+    public String adminShowAppointmentFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+
+        Appointment appointment = appointmentService.getAppointmentById(id);
+        model.addAttribute("appointment", appointment);
+        return "admin_update_appointment";
+    }
+
     @GetMapping("/deleteAppointment/{id}")
     public String deleteAppointment(@PathVariable(value = "id") long id) {
         this.appointmentService.deleteAppointmentById(id);

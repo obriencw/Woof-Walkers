@@ -76,13 +76,17 @@
             <th>Dog Name</th>
             <th>Dog Breed</th>
             <th>Dog Sex</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="dog : ${listDogs}">
+<!--            <input type="hidden" th:field="*{id}" />-->
             <td th:text="${dog.dogName}"></td>
             <td th:text="${dog.dogBreed}"></td>
             <td th:text="${dog.dogSex}"></td>
+            <td> <a th:href="@{/showDogFormForUpdate/{id}(id=${dog.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteDog/{id}(id=${dog.id})}" class="btn btn-danger">Delete</a>
         </tr>
         </tbody>
     </table>
@@ -95,6 +99,7 @@
             <th>Appointment Date</th>
             <th>Appointment Time</th>
             <th>Dog Name</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -102,6 +107,8 @@
             <td th:text="${appointment.appointmentDate}"></td>
             <td th:text="${appointment.appointmentTime}"></td>
             <td th:text="${appointment.dog.dogName}"></td>
+            <td> <a th:href="@{/showAppointmentFormForUpdate/{id}(id=${appointment.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete</a>
         </tr>
         </tbody>
     </table>

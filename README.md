@@ -7,17 +7,28 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
   - [User](#User)
   - [Admin](#Admin)
 - [Wireframe](#Wireframe)
+- [Technical Architecture](#Technical-Architecture)
+- [Technical Challenges](#Technical-Challenges)
 - [For the Future](#For-the-Future)
 
 
 ## Daily Progress
-* April 18 (XX%)
+**April 18 (75-80%)**
   * Added navbar for in-app navigation
   * Added feature that when a user schedules a walk that appointment is registered to the current user
   * Added profile page that displays the user's dogs and scheduled appointments
   * Updated user stories
   * Updated wireframe
   * Updated security for which pages can be accessed by different roles
+  * Added ability to grant admin and superadmin privileges.
+  * Added additional fields to user registration.
+
+  **ToDo**
+  * Add custom queries
+  * Add testing
+  * Update CRUD to delete dog and appointment 'onCascade' to avoid foreign key constraint error
+
+
 * April 15 (60% done)
   * Added feature that when a user registers a dog, that dog is registered to the current user who is logged in
 * April 14 (55% done)
@@ -58,9 +69,13 @@ Today I changed my project from a social media app to a scheduling app that allo
 * https://www.figma.com/file/0aUQZvliXKJ65VpRpjj9mf/Woof-Walkers?node-id=0%3A1
 
 ## Technical Architecture
-* Users are able to register a profile, add their dogs to their profile and schedule an appointment to have their dog(s) walked.
+* Users are able to register a profile, add their dog(s) to their profile and schedule an appointment to have their dog(s) walked.
 * Admins are able to update and delete user information, and appointment information.
+
+## Technical Challenges
+* The original idea for my project was to create a social media app for dogs, but I had difficulty implementing a lot of my ideas.  I decided to change my project to a scheduling app where users can request an appointment to have their dog walked.  This change allowed me to implement more of the features that were covered during the instruction of the course.
 
 ## For the Future
 * Add functionality to be able to have multiple dog walkers and allow users to choose their dog walker.
 * Automate scheduling so that appointment scheduling does not overlap.
+* Add google maps API and java logic to determine if the user is within a maximum distance of an available 'walker'

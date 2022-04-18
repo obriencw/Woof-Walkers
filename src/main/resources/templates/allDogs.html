@@ -75,7 +75,7 @@
             <td th:text="${dog.dogBreed}"></td>
             <td th:text="${dog.dogSex}"></td>
 <!--            <td th:text="${dog.user.id}"></td>-->
-            <td> <a th:href="@{/showDogFormForUpdate/{id}(id=${dog.id})}" class="btn btn-primary">Update</a>
+            <td> <a th:href="@{/adminShowDogFormForUpdate/{id}(id=${dog.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteDog/{id}(id=${dog.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>

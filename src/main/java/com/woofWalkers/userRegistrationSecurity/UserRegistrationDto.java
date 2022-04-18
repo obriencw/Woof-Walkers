@@ -1,5 +1,7 @@
 package com.woofWalkers.userRegistrationSecurity;
 
+import jdk.jfr.MemoryAddress;
+
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -30,8 +32,41 @@ public class UserRegistrationDto {
     @NotEmpty
     private String confirmEmail;
 
+    @NotEmpty
+    private String address;
+
+    @NotEmpty
+    private String city;
+
+    @NotEmpty
+    private String state;
+
+    @NotEmpty
+    private String zipcode;
+
+    @NotEmpty
+    private String phoneNumber;
+
     @AssertTrue
     private Boolean terms;
+
+    @Override
+    public String toString() {
+        return "UserRegistrationDto{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", email='" + email + '\'' +
+                ", confirmEmail='" + confirmEmail + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", terms=" + terms +
+                '}';
+    }
 
     public String getFirstName() {
         return firstName;
@@ -87,6 +122,46 @@ public class UserRegistrationDto {
 
     public void setTerms(Boolean terms) {
         this.terms = terms;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 }
 
