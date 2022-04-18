@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -49,7 +48,7 @@ public class DogController {
         Dog saveDog = dogService.saveDog(dog);
         currentUser.getDog().add(saveDog);
         usersService.saveUser(currentUser);
-        return "redirect:/allDogs";
+        return "redirect:/profile";
     }
     @GetMapping("/showDogFormForUpdate/{id}")
     public String showDogFormForUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -65,15 +64,4 @@ public class DogController {
         return "redirect:/allDogs";
     }
 
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
-
-//    @GetMapping("/logout")
-//    public String logout(HttpServletRequest request){
-//        HttpSession httpSession = request.getSession();
-//        httpSession.invalidate();
-//        return "logout";
-//    }
 }

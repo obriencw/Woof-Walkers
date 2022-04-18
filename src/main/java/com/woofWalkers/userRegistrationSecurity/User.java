@@ -1,5 +1,6 @@
 package com.woofWalkers.userRegistrationSecurity;
 
+import com.woofWalkers.models.Appointment;
 import com.woofWalkers.models.Dog;
 import com.woofWalkers.userRegistrationSecurity.Role;
 
@@ -37,6 +38,17 @@ public class User {
 
     public void setDog(Set<Dog> dog) {
         this.dog = dog;
+    }
+
+    @OneToMany(targetEntity = Appointment.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<Appointment> appointment = new HashSet<>();
+
+    public Set<Appointment> getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(Set<Appointment> appointment) {
+        this.appointment = appointment;
     }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

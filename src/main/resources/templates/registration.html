@@ -9,35 +9,16 @@
     <link rel="stylesheet" type="text/css"
           th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
 
-    <title>com.example.demo.security.User Registration</title>
+    <title>User Registration</title>
 </head>
 <body background="../images/BrandLogo.PNG">
-<!--<nav class="navbar navbar-inverse navbar-fixed-top">-->
-<!--    <div class="container">-->
-<!--        <div class="navbar-header">-->
-<!--            <button type="button" class="navbar-toggle collapsed"-->
-<!--                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"-->
-<!--                    aria-controls="navbar">-->
-<!--                <span class="sr-only">Toggle navigation</span> <span-->
-<!--                    class="icon-bar"></span> <span class="icon-bar"></span> <span-->
-<!--                    class="icon-bar"></span>-->
-<!--            </button>-->
-<!--            <a class="navbar-brand" href="#" th:href="@{/}">Registration and-->
-<!--                Login Module</a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
-
-<!--<br>-->
-<!--<br>-->
 
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
 
             <div th:if="${param.success}">
-                <div class="alert alert-info">You've successfully registered
-                    to our awesome app!</div>
+                <div class="alert alert-info">You've successfully registered.  Welcome to Woof Walkers</div>
             </div>
 
             <h1>Registration</h1>
@@ -102,7 +83,7 @@
                      th:classappend="${#fields.hasErrors('terms')}? 'has-error':''">
                     <input id="terms" type="checkbox" th:field="*{terms}" />   <label
                         class="control-label" for="terms"> I agree with the <a
-                        href="#">terms and conditions</a> for Registration.
+                        href="http://localhost:8080/termsAndConditions">terms and conditions</a> for Registration.
                 </label>
                     <p class="error-message"
                        th:each="error : ${#fields.errors('terms')}" th:text="${error}">Validation
@@ -123,6 +104,7 @@
         th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
 <script type="text/javascript"
         th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script src="/script/script.js"></script>
 </body>
 </html>
 

@@ -7,7 +7,7 @@ import java.util.List;
 public interface AppointmentService {
     List<Appointment> getAllAppointments();
 
-    void saveAppointment(Appointment appointment);
+    Appointment saveAppointment(Appointment appointment);
 
     Appointment getAppointmentById(long id);
 

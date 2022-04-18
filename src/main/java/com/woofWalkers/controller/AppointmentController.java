@@ -2,6 +2,8 @@ package com.woofWalkers.controller;
 
 import com.woofWalkers.models.Appointment;
 import com.woofWalkers.services.AppointmentService;
+import com.woofWalkers.services.UsersService;
+import com.woofWalkers.userRegistrationSecurity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,14 +13,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class AppointmentController {
 
     private AppointmentService appointmentService;
+    private UsersService usersService;
 
     @Autowired
-    public AppointmentController(AppointmentService appointmentService) {this.appointmentService = appointmentService;}
+    public AppointmentController(AppointmentService appointmentService, UsersService usersService) {this.appointmentService = appointmentService;
+    this.usersService = usersService;}
 
     @GetMapping("/allAppointments")
     public String getAllAppointments(Model model) {
@@ -34,12 +39,15 @@ public class AppointmentController {
     }
 
     @PostMapping("/saveAppointment")
-    public String saveAppointment(@ModelAttribute("appointment") @Valid Appointment appointment, BindingResult bindingResult) {
+    public String saveAppointment(@ModelAttribute("appointment") @Valid Appointment appointment, BindingResult bindingResult, Principal principal) {
+        User currentUser = usersService.findByEmail(principal.getName());
         if (bindingResult.hasErrors()) {
             return "new_appointment";
         }
-        appointmentService.saveAppointment(appointment);
-        return "redirect:/allAppointments";
+        Appointment saveAppointment = appointmentService.saveAppointment(appointment);
+        currentUser.getAppointment().add(saveAppointment);
+        usersService.saveUser(currentUser);
+        return "redirect:/profile";
     }
     @GetMapping("/showAppointmentFormForUpdate/{id}")
     public String showAppointmentFormForUpdate(@PathVariable(value = "id") long id, Model model) {

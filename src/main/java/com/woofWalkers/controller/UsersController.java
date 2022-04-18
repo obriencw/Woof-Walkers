@@ -1,9 +1,7 @@
 package com.woofWalkers.controller;
 
-import com.woofWalkers.services.DogService;
 import com.woofWalkers.userRegistrationSecurity.User;
 import com.woofWalkers.services.UsersService;
-import org.hibernate.event.spi.PreInsertEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -50,13 +46,6 @@ public class UsersController {
             System.out.println("error incurred");
         }
         return "/emailError";
-//        usersService.saveUser(user);
-
-//        if (user.getId()!=null) {
-//            return "redirect:/";
-//        } else {
-//            return "redirect:/showNewUserForm";
-//        }
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -70,25 +59,15 @@ public class UsersController {
     @GetMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable(value = "id") long id) {
         this.usersService.deleteUserById(id);
-        return "redirect:/";
+        return "redirect:/allUsers";
     }
 
     @GetMapping("/profile")
     public String getUserDogs(Model model, Principal principal) {
         User currentUser = usersService.findByEmail(principal.getName());
         model.addAttribute("listDogs", currentUser.getDog());
+        model.addAttribute("listAppointments", currentUser.getAppointment());
         return "profile";
     }
 
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
-
-//    @GetMapping("/logout")
-//    public String logout(HttpServletRequest request){
-//        HttpSession httpSession = request.getSession();
-//        httpSession.invalidate();
-//        return "logout";
-//    }
 }

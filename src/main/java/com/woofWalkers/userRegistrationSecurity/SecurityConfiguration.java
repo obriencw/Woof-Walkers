@@ -28,21 +28,34 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/img/**",
                         "/webjars/**"
                 ).permitAll()
+                .mvcMatchers("/deleteUser/**").hasAnyRole("SUPERADMIN")
+                .mvcMatchers("/deleteDog/**").hasAnyRole("SUPERADMIN")
+                .mvcMatchers("/deleteAppointment/**").hasAnyRole("SUPERADMIN")
+                .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showUserForm/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers("/saveUser/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showDogFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showDogForm/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers("/saveDog/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers("/allAppointments/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showAppointmentFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers("/showNewAppointmentForm/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers("/saveAppointment/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .antMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .antMatchers("/showNewDogForm").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/profile", true)
+                .defaultSuccessUrl("/profile", true);
 
-                .and()
-                .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/logout")
-                .permitAll();
+//                .and()
+//                .logout()
+//                .invalidateHttpSession(true)
+//                .clearAuthentication(true)
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                .logoutSuccessUrl("/logout")
+//                .permitAll();
         // @formatter:on
     }
 

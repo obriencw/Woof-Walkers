@@ -2,8 +2,6 @@ package com.woofWalkers.userRegistrationSecurity;
 
 import javax.validation.Valid;
 
-import com.woofWalkers.models.Dog;
-import com.woofWalkers.services.DogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +38,7 @@ public class UserRegistrationController {
         }
 
         userService.save(userDto);
-        return "redirect:/showNewDogForm?success";
+        return "redirect:/profile?success";
     }
 
 }

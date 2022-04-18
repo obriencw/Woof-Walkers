@@ -12,9 +12,9 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "userId")
+//    private User user;
 
     @Column(name = "date")
     private String appointmentDate;
@@ -29,21 +29,28 @@ public class Appointment {
     public Appointment() {
     }
 
-    public long getId() {
+    public Appointment(Long id, String appointmentDate, String appointmentTime, Dog dog) {
+        this.id = id;
+        this.appointmentDate = appointmentDate;
+        this.appointmentTime = appointmentTime;
+        this.dog = dog;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public String getAppointmentDate() {
         return appointmentDate;
