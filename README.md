@@ -37,9 +37,9 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
 * April 11 (20% done)
 Today I changed my project from a social media app to a scheduling app that allows users to schedule an appointment to have their dog walked.
 
-##User Stories
+## User Stories
 
-###User
+### User
 * As a user, I want to have a customized profile so that my profile is unique to me.
   * As a user, I want my profile to display my dog's information so that I can view my dog's information.
   * As a user, I want my profile to display the walks that I have scheduled so that I can keep track of my appointments.
@@ -47,20 +47,20 @@ Today I changed my project from a social media app to a scheduling app that allo
 * As a user, I want to register multiple dogs so that I don't have to create a new profile for each of my dogs.
 * As a user, I want to schedule an appointment for multiple dogs so that I can have both of my dogs walked at the same time.
 
-###Admin
+### Admin
 * As an admin, I want to be able to control appointments so that I can adapt to various changes.
   * As an admin, I want to be able to update scheduled appointments so that if a user has a schedule conflict I can adapt.
   * As an admin, I want to be able to delete appointments so that if a user no longer needs an appointment I can remove it.
 * As an admin, I want to update user information so that if a user's information changes I can adapt.
 * As an admin, I want to delete user information so that users can be removed if needed.
 
-##Wireframe
+## Wireframe
 * https://www.figma.com/file/0aUQZvliXKJ65VpRpjj9mf/Woof-Walkers?node-id=0%3A1
 
-##Technical Architecture
+## Technical Architecture
 * Users are able to register a profile, add their dogs to their profile and schedule an appointment to have their dog(s) walked.
 * Admins are able to update and delete user information, and appointment information.
 
-##For the Future
+## For the Future
 * Add functionality to be able to have multiple dog walkers and allow users to choose their dog walker.
 * Automate scheduling so that appointment scheduling does not overlap.
