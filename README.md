@@ -13,7 +13,15 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
 
 
 ## Daily Progress
-**April 18 (75-80%)**
+**April 19 (82%)**
+* Added custom queries (not complete)
+
+**ToDo**
+* Get custom queries working
+* Add testing
+* Update CRUD to delete dog and appointment 'onCascade' to avoid foreign key constraint error
+
+*April 18 (75-80%)
   * Added navbar for in-app navigation
   * Added feature that when a user schedules a walk that appointment is registered to the current user
   * Added profile page that displays the user's dogs and scheduled appointments
@@ -22,30 +30,24 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
   * Updated security for which pages can be accessed by different roles
   * Added ability to grant admin and superadmin privileges.
   * Added additional fields to user registration.
-
-  **ToDo**
-  * Add custom queries
-  * Add testing
-  * Update CRUD to delete dog and appointment 'onCascade' to avoid foreign key constraint error
-
-
-* April 15 (60% done)
-  * Added feature that when a user registers a dog, that dog is registered to the current user who is logged in
-* April 14 (55% done)
-  * Completed CRUD operations for Appointment
-  * All basic CRUD operations completed
-  * Started implementing user registration
-* April 13 (35% done)
-  * Updated CRUD operations for Appointment but unable to save date and time
-* April 12 (25-30% done)
-  * Added Dog model, DogRepository, DogService, and DogServiceImpl
-  * Implemented CRUD operations for Dog
-  * Created corresponding HTML pages for Dog CRUD
-  * Added Appointment model, AppointmentRepository, AppointmentService and AppointmentServiceImpl
-  * Implemented CRUD operations for Appointments
-  * Created corresponding HTML pages for Appointment CRUD
-  * All tables linked with foreign keys
-* April 11 (20% done)
+  
+  * April 15 (60% done)
+    * Added feature that when a user registers a dog, that dog is registered to the current user who is logged in
+  * April 14 (55% done)
+    * Completed CRUD operations for Appointment
+    * All basic CRUD operations completed
+    * Started implementing user registration
+  * April 13 (35% done)
+    * Updated CRUD operations for Appointment but unable to save date and time
+  * April 12 (25-30% done)
+    * Added Dog model, DogRepository, DogService, and DogServiceImpl
+    * Implemented CRUD operations for Dog
+    * Created corresponding HTML pages for Dog CRUD
+    * Added Appointment model, AppointmentRepository, AppointmentService and AppointmentServiceImpl
+    * Implemented CRUD operations for Appointments
+    * Created corresponding HTML pages for Appointment CRUD
+    * All tables linked with foreign keys
+  * April 11 (20% done)
 Today I changed my project from a social media app to a scheduling app that allows users to schedule an appointment to have their dog walked.
 
 ## User Stories
