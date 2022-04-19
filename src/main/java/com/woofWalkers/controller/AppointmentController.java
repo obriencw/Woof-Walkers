@@ -4,6 +4,7 @@ import com.woofWalkers.models.Appointment;
 import com.woofWalkers.services.AppointmentService;
 import com.woofWalkers.services.UsersService;
 import com.woofWalkers.userRegistrationSecurity.User;
+import com.woofWalkers.userRegistrationSecurity.UserRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class AppointmentController {
@@ -21,9 +24,11 @@ public class AppointmentController {
     private AppointmentService appointmentService;
     private UsersService usersService;
 
+
     @Autowired
-    public AppointmentController(AppointmentService appointmentService, UsersService usersService) {this.appointmentService = appointmentService;
-    this.usersService = usersService;}
+    public AppointmentController(AppointmentService appointmentService, UsersService usersService) {
+        this.appointmentService = appointmentService;
+        this.usersService = usersService;}
 
     @GetMapping("/allAppointments")
     public String getAllAppointments(Model model) {
@@ -69,5 +74,29 @@ public class AppointmentController {
     public String deleteAppointment(@PathVariable(value = "id") long id) {
         this.appointmentService.deleteAppointmentById(id);
         return "redirect:/allAppointments";
+    }
+
+    @GetMapping("/findAppointments")
+    public String findAppointment(@ModelAttribute UserRegistrationDto userRegistrationDto, Model model) {
+
+        Set<Appointment> appointmentSet = new HashSet<>();
+
+        if(!userRegistrationDto.getQueryName().isEmpty()) {
+            String name = userRegistrationDto.getQueryName();
+            appointmentSet.addAll(appointmentService.findByUsersFirstNameOrLastName(name, name));
+        }
+
+        if(!userRegistrationDto.getQueryLocation().isEmpty()) {
+            appointmentSet.addAll(appointmentService.findByCityContaining(userRegistrationDto.getQueryLocation()));
+        }
+
+        if(userRegistrationDto.getQueryAppointmentDate() != null) {
+            appointmentSet.addAll(appointmentService.findByAppointmentDateEquals(userRegistrationDto.getQueryAppointmentDate()));
+        }
+
+        model.addAttribute("listAppointments", appointmentSet);
+        model.addAttribute("userRegistrationDto", new UserRegistrationDto());
+
+        return  "allAppointments";
     }
 }
