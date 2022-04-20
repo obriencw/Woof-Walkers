@@ -30,6 +30,10 @@ public class UsersServiceImpl implements UsersService{
     public void saveUser(User user)
     { usersRepository.save(user); }
 
+//    @Override
+//    public void updateUser(User user)
+//    { usersRepository.save(user);}
+
     @Override
     public User findByEmail(String email){
         return usersRepository.findByEmail(email);

@@ -3,7 +3,6 @@ package com.woofWalkers.services;
 import com.woofWalkers.models.Appointment;
 import com.woofWalkers.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -41,7 +40,7 @@ public class AppointmentServiceImpl implements AppointmentService{
 
     @Override
     public List<Appointment> findByUsersFirstNameOrLastName(String firstNameInFix, String lastNameInfix) {
-        return appointmentRepository.findByUserFirstNameContainingOrUserLastNameContaining(firstNameInFix, lastNameInfix);
+        return appointmentRepository.findByUserFirstNameOrUserLastNameContaining(firstNameInFix, lastNameInfix);
     }
 
     @Override
@@ -53,4 +52,11 @@ public class AppointmentServiceImpl implements AppointmentService{
     public  List<Appointment> findByCityContaining(String locationInfix) {
         return appointmentRepository.findByUserCityContaining(locationInfix);
     }
+
+    @Override
+    public List<Appointment> getAllUserAppointments(long id) {
+        return appointmentRepository.findByUserId(id);
+    }
+
+
 }

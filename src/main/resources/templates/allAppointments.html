@@ -31,7 +31,7 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="http://localhost:8080/index1" class="nav-link active">
+                    <a href="http://localhost:8080/allUsers" class="nav-link active">
                         Home
                     </a>
                 </li>
@@ -65,7 +65,7 @@
             class="form-card mx-5"
             action="allAppointments.html"
             th:action="@{findAppointments}"
-            th:object="${userRegistrationDto}"
+            th:object="${queryObj}"
             method="POST">
             <div class="row justify-content-center text-left">
                 <div class="form-group col-12 col-lg-3 flex-column d-flex">
@@ -79,19 +79,19 @@
                 </div>
                 <div class="form-group col-12 col-lg-3 flex-column d-flex">
                     <label class="form-control-label">City</label>
-                    <select
-                        name="q_city"
-                        class="custom-select"
+                    <input
+                        type="text"
                         id="q_city_id"
+                        name="q_city"
+                        placeholder="city"
                         th:field="*{queryCity}">
-                    </select>
+                    </input>
                 </div>
                 <div class="form-group col-12 col-lg-3 flex-column d-flex">
                     <label class="form-control-label">Date</label>
                     <input
                         id="q_appointment_date"
                         type="date"
-                        value="2022-01-01"
                     th:field="*{queryAppointmentDate}"/>
                 </div>
                 <div class="form-group col-12 col-lg-3">
@@ -104,15 +104,6 @@
             </div>
         </form>
     </div>
-<!--    <hr class="ml-5 mr-5"/>-->
-<!--    -->
-<!--    <div class="d-flex justify-content-begin mt-3 mx-5">-->
-<!--        <a href="allAppointments.html"-->
-<!--           th:href="@{/allAppointments}"-->
-<!--           class="btn btn-primary btn-block col-12 col-lg-2 mb-4">-->
-<!--            <i class="fa fa-plus mr-1"></i> Add-->
-<!--        </a>-->
-<!--    </div>-->
 
     <a th:href="@{/showNewAppointmentForm}" class="btn btn-primary btn-sm mb-3"> Add Appointment </a>
 

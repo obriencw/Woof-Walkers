@@ -50,12 +50,6 @@ public class UserRegistrationDto {
     @AssertTrue
     private Boolean terms;
 
-    private String queryName = "";
-
-    private String queryAppointmentDate;
-
-    private String queryLocation = "";
-
     public UserRegistrationDto() {
     }
 
@@ -173,28 +167,6 @@ public class UserRegistrationDto {
         this.zipcode = zipcode;
     }
 
-    public String getQueryName() {
-        return queryName;
-    }
 
-    public void setQueryName(String queryName) {
-        this.queryName = queryName;
-    }
-
-    public String getQueryAppointmentDate() {
-        return queryAppointmentDate;
-    }
-
-    public void setQueryAppointmentDate(String queryAppointmentDate) {
-        this.queryAppointmentDate = queryAppointmentDate;
-    }
-
-    public String getQueryLocation() {
-        return queryLocation;
-    }
-
-    public void setQueryLocation(String queryLocation) {
-        this.queryLocation = queryLocation;
-    }
 }
 

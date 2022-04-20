@@ -55,17 +55,6 @@ public class User {
         this.dog = dog;
     }
 
-    @OneToMany(targetEntity = Appointment.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    private Set<Appointment> appointment = new HashSet<>();
-
-    public Set<Appointment> getAppointment() {
-        return appointment;
-    }
-
-    public void setAppointment(Set<Appointment> appointment) {
-        this.appointment = appointment;
-    }
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_roles",

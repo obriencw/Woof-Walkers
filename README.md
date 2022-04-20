@@ -13,13 +13,16 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
 
 
 ## Daily Progress
-**April 19 (82%)**
-* Added custom queries (not complete)
+**April 20 (82%)**
+* Custom queries working as expected
 
 **ToDo**
-* Get custom queries working
 * Add testing
-* Update CRUD to delete dog and appointment 'onCascade' to avoid foreign key constraint error
+* Fix CRUD to delete dog and delete appointment to avoid foreign key constraint error
+* Fix CRUD for updating a user
+
+*April 19 (82%)
+* Added custom queries (not complete)
 
 *April 18 (75-80%)
   * Added navbar for in-app navigation

@@ -9,7 +9,8 @@ import java.util.List;
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
     Appointment findAppointmentById(Long id);
-    List<Appointment> findByUserFirstNameContainingOrUserLastNameContaining(String firstNameInFix, String lastNameInfix);
+    List<Appointment> findByUserFirstNameOrUserLastNameContaining(String firstNameInFix, String lastNameInfix);
     List<Appointment> findByAppointmentDateEquals(String appointmentDate);
     List<Appointment> findByUserCityContaining(String locationInfix);
+    List<Appointment> findByUserId(long id);
 }

@@ -1,5 +1,6 @@
 package com.woofWalkers.controller;
 
+import com.woofWalkers.services.AppointmentService;
 import com.woofWalkers.userRegistrationSecurity.User;
 import com.woofWalkers.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,12 @@ import java.security.Principal;
 @Controller
 public class UsersController {
     private UsersService usersService;
+    private AppointmentService appointmentService;
 
     @Autowired
-    public UsersController(UsersService usersService) {this.usersService = usersService;}
+    public UsersController(UsersService usersService, AppointmentService appointmentService) {this.usersService = usersService;
+        this.appointmentService = appointmentService;
+    }
 
     @GetMapping("/allUsers")
     public String getAllUsers(Model model) {
@@ -45,8 +49,22 @@ public class UsersController {
         } catch (Exception e) {
             System.out.println("error incurred");
         }
-        return "/emailError";
+        return "/index1";
     }
+
+//    @PostMapping("/updateUser")
+//    public String updateUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+//        if (bindingResult.hasErrors()) {
+//            return "new_user";
+//        }
+//        try {
+//            usersService.saveUser(user);
+//            return "redirect:/";
+//        } catch (Exception e) {
+//            System.out.println("error incurred");
+//        }
+//        return "/";
+//    }
 
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
@@ -66,7 +84,7 @@ public class UsersController {
     public String getUserDogs(Model model, Principal principal) {
         User currentUser = usersService.findByEmail(principal.getName());
         model.addAttribute("listDogs", currentUser.getDog());
-        model.addAttribute("listAppointments", currentUser.getAppointment());
+        model.addAttribute("listAppointments", appointmentService.getAllUserAppointments(currentUser.getId()));
         return "profile";
     }
 

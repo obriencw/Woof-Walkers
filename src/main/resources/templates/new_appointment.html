@@ -12,6 +12,13 @@
             margin-right: auto;
             text-align: center;
         }
+
+        .container, textarea {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
         h1 {text-align: center;}
         input {text-align: center;}
 
@@ -88,6 +95,11 @@
 <!--        <input type="text" th:field="*{user.id}" name="userId" placeholder="User Id" id="userId" class="form-control mb-4 col-4" required>-->
             <p>Dog Id</p>
         <input type="text" th:field="*{dog.id}" name="dogId" placeholder="Dog Id" id="dogId" class="form-control mb-4 col-4" required>
+
+            <p>Comments for your dog walker</p>
+
+        <textarea type="text" th:field="*{comments}" id="comments" class="form-control mb-4 col-4" style="height:150px" maxlength="200"></textarea>
+            <p></p>
 
         <br>
         <br>

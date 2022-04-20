@@ -23,8 +23,11 @@ public class Appointment {
     private String appointmentTime;
 
     @ManyToOne
-    @JoinColumn(name = "dogName")
+    @JoinColumn(name = "dogId")
     private Dog dog;
+
+    @Column(name = "comments")
+    private String comments;
 
     @ManyToOne
     private User user;
@@ -32,12 +35,13 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(Long id, String appointmentDate, String appointmentTime, Dog dog, User user) {
+    public Appointment(Long id, String appointmentDate, String appointmentTime, Dog dog, User user, String comments) {
         this.id = id;
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
         this.dog = dog;
         this.user = user;
+        this.comments = comments;
     }
 
     public Long getId() {
@@ -47,14 +51,6 @@ public class Appointment {
     public void setId(Long id) {
         this.id = id;
     }
-
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 
     public String getAppointmentDate() {
         return appointmentDate;
@@ -86,5 +82,13 @@ public class Appointment {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }

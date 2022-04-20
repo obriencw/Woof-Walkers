@@ -1,6 +1,7 @@
 package com.woofWalkers.controller;
 
 import com.woofWalkers.models.Appointment;
+import com.woofWalkers.models.QueryObj;
 import com.woofWalkers.services.AppointmentService;
 import com.woofWalkers.services.UsersService;
 import com.woofWalkers.userRegistrationSecurity.User;
@@ -33,6 +34,7 @@ public class AppointmentController {
     @GetMapping("/allAppointments")
     public String getAllAppointments(Model model) {
         model.addAttribute("listAppointments", appointmentService.getAllAppointments());
+        model.addAttribute("queryObj", new QueryObj());
         return "allAppointments";
     }
 
@@ -49,9 +51,9 @@ public class AppointmentController {
         if (bindingResult.hasErrors()) {
             return "new_appointment";
         }
+        appointment.setUser(currentUser);
         Appointment saveAppointment = appointmentService.saveAppointment(appointment);
-        currentUser.getAppointment().add(saveAppointment);
-        usersService.saveUser(currentUser);
+
         return "redirect:/profile";
     }
     @GetMapping("/showAppointmentFormForUpdate/{id}")
@@ -76,22 +78,22 @@ public class AppointmentController {
         return "redirect:/allAppointments";
     }
 
-    @GetMapping("/findAppointments")
-    public String findAppointment(@ModelAttribute UserRegistrationDto userRegistrationDto, Model model) {
+    @PostMapping("/findAppointments")
+    public String findAppointment(@ModelAttribute QueryObj queryObj, Model model) {
 
         Set<Appointment> appointmentSet = new HashSet<>();
 
-        if(!userRegistrationDto.getQueryName().isEmpty()) {
-            String name = userRegistrationDto.getQueryName();
+        if(!queryObj.getQueryName().isEmpty()) {
+            String name = queryObj.getQueryName();
             appointmentSet.addAll(appointmentService.findByUsersFirstNameOrLastName(name, name));
         }
 
-        if(!userRegistrationDto.getQueryLocation().isEmpty()) {
-            appointmentSet.addAll(appointmentService.findByCityContaining(userRegistrationDto.getQueryLocation()));
+        if(!queryObj.getQueryCity().isEmpty()) {
+            appointmentSet.addAll(appointmentService.findByCityContaining(queryObj.getQueryCity()));
         }
 
-        if(userRegistrationDto.getQueryAppointmentDate() != null) {
-            appointmentSet.addAll(appointmentService.findByAppointmentDateEquals(userRegistrationDto.getQueryAppointmentDate()));
+        if(queryObj.getQueryAppointmentDate() != null) {
+            appointmentSet.addAll(appointmentService.findByAppointmentDateEquals(queryObj.getQueryAppointmentDate()));
         }
 
         model.addAttribute("listAppointments", appointmentSet);

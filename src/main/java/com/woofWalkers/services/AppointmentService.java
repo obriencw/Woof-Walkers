@@ -21,4 +21,6 @@ public interface AppointmentService {
 
     List<Appointment> findByCityContaining(String locationInfix);
 
+    List<Appointment> getAllUserAppointments(long id);
+
 }
