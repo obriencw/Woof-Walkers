@@ -41,9 +41,9 @@ public class UserServiceImpl implements UserService {
         user.setState(registration.getState());
         user.setZipcode(registration.getZipcode());
         user.setPhoneNumber(registration.getPhoneNumber());
-//        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
 //        user.setRoles(Arrays.asList(new Role("ROLE_USER"), new Role("ROLE_ADMIN")));
-        user.setRoles(Arrays.asList(new Role("ROLE_USER"), new Role("ROLE_ADMIN"), new Role("ROLE_SUPERADMIN")));
+//        user.setRoles(Arrays.asList(new Role("ROLE_USER"), new Role("ROLE_ADMIN"), new Role("ROLE_SUPERADMIN")));
         return userRepository.save(user);
     }
 

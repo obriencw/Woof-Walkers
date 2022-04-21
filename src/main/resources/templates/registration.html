@@ -22,7 +22,7 @@
             </div>
 
             <h1>Registration</h1>
-            <form th:action="@{/registration}" id="form" name="form" th:object="${user}" method="post">
+            <form th:action="@{/registration}" id="form" onsubmit="return validateInputs()" name="form" th:object="${user}" method="post">
 
                 <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
                    th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
@@ -130,7 +130,7 @@
                         error</p>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Register</button>
+                    <button type="submit" id="signupSubmit" class="btn btn-success">Register</button>
                     <span>Already registered? <a href="/" th:href="@{/login}">Login
                        here</a></span>
                 </div>
