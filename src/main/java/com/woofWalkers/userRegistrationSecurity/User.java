@@ -70,7 +70,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String email, String password, String confirmPassword, String address, String city, String state, String zipcode, String phoneNumber) {
+    public User(Long id, String firstName, String lastName, String email, String password, String address, String city, String state, String zipcode, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

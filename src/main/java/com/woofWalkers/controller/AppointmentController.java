@@ -75,7 +75,7 @@ public class AppointmentController {
     @GetMapping("/deleteAppointment/{id}")
     public String deleteAppointment(@PathVariable(value = "id") long id) {
         this.appointmentService.deleteAppointmentById(id);
-        return "redirect:/allAppointments";
+        return "redirect:/profile";
     }
 
     @PostMapping("/findAppointments")

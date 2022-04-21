@@ -14,125 +14,29 @@
     <hr>
     <h2>Update User</h2>
 
-    <form action="#" th:action="@{/registration}" th:object="${user}" method="POST">
-        <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
-           th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
-            error</p>
+    <form action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
 
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
-            <label for="firstName" class="control-label">First name</label> <input
-                id="firstName" class="form-control" th:field="*{firstName}" />
-            <p class="error-message"
-               th:each="error: ${#fields.errors('firstName')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
-            <label for="lastName" class="control-label">Last name</label> <input
-                id="lastName" class="form-control" th:field="*{lastName}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('lastName')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('address')}? 'has-error':''">
-            <label for="address" class="control-label">Address</label> <input
-                id="address" class="form-control" th:field="*{address}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('address')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('city')}? 'has-error':''">
-            <label for="city" class="control-label">City</label> <input
-                id="city" class="form-control" th:field="*{city}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('city')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('state')}? 'has-error':''">
-            <label for="state" class="control-label">State</label> <input
-                id="state" class="form-control" th:field="*{state}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('state')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('zipcode')}? 'has-error':''">
-            <label for="zipcode" class="control-label">Zipcode</label> <input
-                id="zipcode" class="form-control" th:field="*{zipcode}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('zipcode')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('phoneNumber')}? 'has-error':''">
-            <label for="phoneNumber" class="control-label">Phone Number</label> <input
-                id="phoneNumber" class="form-control" th:field="*{phoneNumber}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('phoneNumber')}"
-               th:text="${error}">Validation error</p>
-        </div>
+        <input type="hidden" th:field="*{id}" />
 
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
-            <label for="email" class="control-label">E-mail</label> <input
-                id="email" class="form-control" th:field="*{email}" />
+        <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
 
-            <p class="error-message"
-               th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation
-                error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
-            <label for="confirmEmail" class="control-label">Confirm
-                e-mail</label> <input id="confirmEmail" class="form-control"
-                                      th:field="*{confirmEmail}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('confirmEmail')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
-            <label for="password" class="control-label">Password</label> <input
-                id="password" class="form-control" type="password"
-                th:field="*{password}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('password')}"
-               th:text="${error}">Validation error</p>
-        </div>
-        <div class="form-group"
-             th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
-            <label for="confirmPassword" class="control-label">Confirm
-                password</label> <input id="confirmPassword" class="form-control"
-                                        type="password" th:field="*{confirmPassword}" />
-            <p class="error-message"
-               th:each="error : ${#fields.errors('confirmPassword')}"
-               th:text="${error}">Validation error</p>
-        </div>
-            <p class="error-message"
-               th:each="error : ${#fields.errors('terms')}" th:text="${error}">Validation
-                error</p>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Update User</button>
-        </div>
-        <!-- Add hidden form field to handle update -->
-<!--        <input type="hidden" th:field="*{id}" />-->
+        <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
 
-<!--        <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">-->
+        <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
 
-<!--        <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">-->
+        <input type="text" th:field="*{address}" class="form-control mb-4 col-4">
 
-<!--        <input type="text" th:field="*{email}" class="form-control mb-4 col-4">-->
+        <input type="text" th:field="*{city}" class="form-control mb-4 col-4">
 
-<!--        <input type="text" th:field="*{password}" class="form-control mb-4 col-4">-->
+        <input type="text" th:field="*{state}" class="form-control mb-4 col-4">
 
-<!--        <input type="text" th:field="*{confirmPassword}" placeholder="Confirm Password" class="form-control mb-4 col-4">-->
+        <input type="text" th:field="*{zipcode}" class="form-control mb-4 col-4">
 
-<!--        <button type="submit" class="btn btn-info col-2"> Update User</button>-->
+        <input type="text" th:field="*{phoneNumber}" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{password}" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Update User</button>
     </form>
 
     <hr>

@@ -13,13 +13,17 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
 
 
 ## Daily Progress
-**April 20 (82%)**
-* Custom queries working as expected
+**April 21 (82%)**
+* Fixed CRUD for updating a user
+* Fixed CRUD for deleting dog to avoid foreign key constraint
 
 **ToDo**
 * Add testing
-* Fix CRUD to delete dog and delete appointment to avoid foreign key constraint error
-* Fix CRUD for updating a user
+* Add ability to schedule walks for more than one dog
+
+
+*April 20 (82%)
+* Custom queries working as expected
 
 *April 19 (82%)
 * Added custom queries (not complete)
@@ -74,8 +78,7 @@ Today I changed my project from a social media app to a scheduling app that allo
 * https://www.figma.com/file/0aUQZvliXKJ65VpRpjj9mf/Woof-Walkers?node-id=0%3A1
 
 ## Technical Architecture
-* Users are able to register a profile, add their dog(s) to their profile and schedule an appointment to have their dog(s) walked.
-* Admins are able to update and delete user information, and appointment information.
+
 
 ## Technical Challenges
 * The original idea for my project was to create a social media app for dogs, but I had difficulty implementing a lot of my ideas.  I decided to change my project to a scheduling app where users can request an appointment to have their dog walked.  This change allowed me to implement more of the features that were covered during the instruction of the course.

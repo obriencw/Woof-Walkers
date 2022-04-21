@@ -1,6 +1,8 @@
 package com.woofWalkers.controller;
 
+import com.woofWalkers.models.Appointment;
 import com.woofWalkers.models.Dog;
+import com.woofWalkers.services.AppointmentService;
 import com.woofWalkers.services.DogService;
 import com.woofWalkers.services.UsersService;
 import com.woofWalkers.userRegistrationSecurity.User;
@@ -15,15 +17,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.Set;
 
 @Controller
 public class DogController {
     private DogService dogService;
     private UsersService usersService;
+    private AppointmentService appointmentService;
 
     @Autowired
-    public DogController(DogService dogService, UsersService usersService) {this.dogService = dogService;
-        this.usersService = usersService;
+    public DogController(DogService dogService, UsersService usersService, AppointmentService appointmentService) {this.dogService = dogService;
+        this.usersService = usersService; this.appointmentService = appointmentService;
     }
 
     @GetMapping("/allDogs")
@@ -67,9 +71,17 @@ public class DogController {
     }
 
     @GetMapping("/deleteDog/{id}")
-    public String deleteDog(@PathVariable(value = "id") long id) {
+    public String deleteDog(@PathVariable(value = "id") long id, Principal principal) {
+        User user = usersService.findByEmail(principal.getName());
+        Set<Dog> dog = user.getDog();
+        Dog dog1 = dogService.getDogById(id);
+        dog.remove(dog1);
+
+//        Appointment appointment1 = appointmentService.getAppointmentById(id);
+//        appointment.remove(appointment1);
+        usersService.saveUser(user);
         this.dogService.deleteDogById(id);
-        return "redirect:/allDogs";
+        return "redirect:/profile";
     }
 
 }

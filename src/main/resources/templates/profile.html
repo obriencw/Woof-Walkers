@@ -76,6 +76,7 @@
         <thead>
         <tr>
             <th>Dog Name</th>
+            <th>Dog Id</th>
             <th>Dog Breed</th>
             <th>Dog Sex</th>
             <th>Actions</th>
@@ -85,6 +86,7 @@
         <tr th:each="dog : ${listDogs}">
 <!--            <input type="hidden" th:field="*{id}" />-->
             <td th:text="${dog.dogName}"></td>
+            <td th:text="${dog.id}"></td>
             <td th:text="${dog.dogBreed}"></td>
             <td th:text="${dog.dogSex}"></td>
             <td> <a th:href="@{/showDogFormForUpdate/{id}(id=${dog.id})}" class="btn btn-primary">Update</a>
@@ -103,7 +105,7 @@
         <tr>
             <th>Appointment Date</th>
             <th>Appointment Time</th>
-            <th>Dog Name</th>
+            <th>Dog Name(s)</th>
             <th>Actions</th>
         </tr>
         </thead>
