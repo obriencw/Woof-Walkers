@@ -77,7 +77,7 @@ Today I changed my project from a social media app to a scheduling app that allo
 * https://www.figma.com/file/0aUQZvliXKJ65VpRpjj9mf/Woof-Walkers?node-id=0%3A1
 
 ## Technical Architecture
-
+![Technical Architecture](./Technical_Architecture.PNG)
 
 ## Technical Challenges
 * The original idea for my project was to create a social media app for dogs, but I had difficulty implementing a lot of my ideas.  I decided to change my project to a scheduling app where users can request an appointment to have their dog walked.  This change allowed me to implement more of the features that were covered during the instruction of the course.
