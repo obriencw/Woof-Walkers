@@ -3,6 +3,7 @@
 Woof Walkers is an application that gives dog owners the ability to schedule an appointment to have their dog walked whenever they need it.
 
 - [Daily Progress](#Daily-Progress)
+- [Total Progress](#Total-Progress)
 - [User Stories](#User-Stories)
   - [User](#User)
   - [Admin](#Admin)
@@ -55,6 +56,10 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
     * All tables linked with foreign keys
   * April 11 (20% done)
 Today I changed my project from a social media app to a scheduling app that allows users to schedule an appointment to have their dog walked.
+
+## Total Progress
+* Case Study Rubric
+https://docs.google.com/document/d/1g-WW5qg5hG9iibcexZXdJLNDt_5qBlPq/edit
 
 ## User Stories
 

@@ -49,7 +49,7 @@ public class UsersController {
         } catch (Exception e) {
             System.out.println("error incurred");
         }
-        return "/index1";
+        return "/allUsers";
     }
 
 //    @PostMapping("/updateUser")

@@ -76,9 +76,6 @@ public class DogController {
         Set<Dog> dog = user.getDog();
         Dog dog1 = dogService.getDogById(id);
         dog.remove(dog1);
-
-//        Appointment appointment1 = appointmentService.getAppointmentById(id);
-//        appointment.remove(appointment1);
         usersService.saveUser(user);
         this.dogService.deleteDogById(id);
         return "redirect:/profile";
