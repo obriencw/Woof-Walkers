@@ -113,7 +113,11 @@
         <tr th:each="appointment : ${listAppointments}">
             <td th:text="${appointment.appointmentDate}"></td>
             <td th:text="${appointment.appointmentTime}"></td>
-            <td th:text="${appointment.dog.dogName}"></td>
+            <td>
+                <div th:each="dog : ${appointment.getDogs()}">
+                    <p th:text="${dog.getDogName()}"></p>
+                </div>
+            </td>
             <td> <a th:href="@{/showAppointmentFormForUpdate/{id}(id=${appointment.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteAppointment/{id}(id=${appointment.id})}" class="btn btn-danger">Delete</a>
         </tr>

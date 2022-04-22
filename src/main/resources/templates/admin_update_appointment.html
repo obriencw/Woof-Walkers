@@ -17,18 +17,31 @@
 
     <form action="#" th:action="@{/saveAppointment}" th:object="${appointment}" method="POST">
 
-        <!-- Add hidden form field to handle update -->
-        <input type="hidden" field="*{id}" />
+        <input type="hidden" th:field="*{id}" />
+        <p>Appointment Date</p>
 
-        <input type="text" field="*{appointmentDate}" class="form-control mb-4 col-4">
+        <input type="date" th:field="*{appointmentDate}" name="appointmentDate" placeholder="Appointment Date" class="form-control mb-4 col-4" required>
 
-        <input type="text" field="*{appointmentTime}" class="form-control mb-4 col-4">
+        <p>Appointment Time</p>
 
-        <input type="text" field="*{userId}" class="form-control mb-4 col-4">
+        <input type="time" th:field="*{appointmentTime}" name="appointmentTime" placeholder="Appointment Time" class="form-control mb-4 col-4" required>
 
-        <input type="text" field="*{dogId}" class="form-control mb-4 col-4">
+        <!--        <input type="text" th:field="*{user.id}" name="userId" placeholder="User Id" id="userId" class="form-control mb-4 col-4" required>-->
+        <p>Dog Id(s)</p>
+        <input type="text" th:field="*{dogs}" name="dogId" placeholder="Dog Id" id="dogId" class="form-control mb-4 col-4" required>
 
-        <button type="submit" class="btn btn-info col-2"> Update Appointment</button>
+        <!--        <p>Dog #2 Id</p>-->
+        <!--        <input type="text" th:field="*{dog.id}" name="dogId" placeholder="Dog Id" id="dogId2" class="form-control mb-4 col-4">-->
+
+        <!--        <p>Dog #3 Id</p>-->
+        <!--        <input type="text" th:field="*{dog.id}" name="dogId" placeholder="Dog Id" id="dogId3" class="form-control mb-4 col-4">-->
+
+        <p>Comments for your dog walker</p>
+        <textarea type="text" th:field="*{comments}" id="comments" class="form-control mb-4 col-4" style="height:150px" maxlength="200"></textarea>
+        <br>
+        <br>
+        <button id="signupSubmit" type="submit" class="btn btn-info col-2"> Update Appointment</button>
+        <div class="error"></div>
     </form>
 
     <hr>

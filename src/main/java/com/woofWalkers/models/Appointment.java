@@ -3,6 +3,7 @@ package com.woofWalkers.models;
 import com.woofWalkers.userRegistrationSecurity.User;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "appointment")
@@ -22,9 +23,9 @@ public class Appointment {
     @Column(name = "time")
     private String appointmentTime;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "dogId")
-    private Dog dog;
+    Set<Dog> dogs;
 
     @Column(name = "comments")
     private String comments;
@@ -35,20 +36,20 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(Long id, String appointmentDate, String appointmentTime, Dog dog, User user, String comments) {
+    public Appointment(long id, String appointmentDate, String appointmentTime, Set<Dog> dogs, String comments, User user) {
         this.id = id;
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
-        this.dog = dog;
-        this.user = user;
+        this.dogs = dogs;
         this.comments = comments;
+        this.user = user;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -68,20 +69,12 @@ public class Appointment {
         this.appointmentTime = appointmentTime;
     }
 
-    public Dog getDog() {
-        return dog;
+    public Set<Dog> getDogs() {
+        return dogs;
     }
 
-    public void setDog(Dog dog) {
-        this.dog = dog;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setDogs(Set<Dog> dogs) {
+        this.dogs = dogs;
     }
 
     public String getComments() {
@@ -90,5 +83,13 @@ public class Appointment {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -5,6 +5,7 @@ import jdk.jfr.MemoryAddress;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @FieldMatch.List({
         @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
@@ -19,9 +20,11 @@ public class UserRegistrationDto {
     private String lastName;
 
     @NotEmpty
+    @Size(min = 8)
     private String password;
 
     @NotEmpty
+    @Size(min = 8)
     private String confirmPassword;
 
     @Email
