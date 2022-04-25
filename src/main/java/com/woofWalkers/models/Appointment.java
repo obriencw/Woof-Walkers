@@ -3,6 +3,7 @@ package com.woofWalkers.models;
 import com.woofWalkers.userRegistrationSecurity.User;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -92,4 +93,15 @@ public class Appointment {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Appointment appointment = (Appointment) o;
+        return id == appointment.id && Objects.equals(appointmentDate, appointment.appointmentDate) && Objects.equals(appointmentTime, appointment.appointmentTime);
+    }
+
+    @Override
+    public int hashCode() {return Objects.hash(id, appointmentDate, appointmentTime); }
 }

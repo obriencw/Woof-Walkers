@@ -3,6 +3,7 @@ package com.woofWalkers.models;
 import com.woofWalkers.userRegistrationSecurity.User;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -74,4 +75,15 @@ public class Dog {
 //    public void setUser(User user) {
 //        this.user = user;
 //    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dog dog = (Dog) o;
+        return id == dog.id && Objects.equals(dogName, dog.dogName) && Objects.equals(dogBreed, dog.dogBreed);
+    }
+
+    @Override
+    public int hashCode() {return Objects.hash(id, dogName, dogBreed, dogSex); }
 }

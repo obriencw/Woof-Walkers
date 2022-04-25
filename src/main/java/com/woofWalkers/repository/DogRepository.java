@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DogRepository extends JpaRepository<Dog, Long> {
     Dog findDogById(Long id);
+    Dog findBreedByDogName(String dogName);
 }

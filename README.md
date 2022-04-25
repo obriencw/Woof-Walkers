@@ -14,25 +14,29 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
 
 
 ## Daily Progress
-**April 22 (90%)**
+**April 25 (95%)**
+* Added testing methods for repository and service
+
+**To-Do**
+* Add comments
+* Create zip file and submit to canvas
+
+*April 22 (90%)
 * Added ability to assign multiple dogs to an appointment
 * Removed background from html pages that display tables so that they are easier to view
 * Updated Navbar navigation
 
-**ToDo**
-* Add testing
-
-*April 21 (90%)
+April 21 (90%)
 * Fixed CRUD for updating a user
 * Fixed CRUD for deleting dog to avoid foreign key constraint
 
-*April 20 (82%)
+April 20 (82%)
 * Custom queries working as expected
 
-*April 19 (82%)
+April 19 (82%)
 * Added custom queries (not complete)
 
-*April 18 (75-80%)
+April 18 (75-80%)
   * Added navbar for in-app navigation
   * Added feature that when a user schedules a walk that appointment is registered to the current user
   * Added profile page that displays the user's dogs and scheduled appointments
@@ -42,23 +46,27 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
   * Added ability to grant admin and superadmin privileges.
   * Added additional fields to user registration.
   
-  * April 15 (60% done)
-    * Added feature that when a user registers a dog, that dog is registered to the current user who is logged in
-  * April 14 (55% done)
-    * Completed CRUD operations for Appointment
-    * All basic CRUD operations completed
-    * Started implementing user registration
-  * April 13 (35% done)
-    * Updated CRUD operations for Appointment but unable to save date and time
-  * April 12 (25-30% done)
-    * Added Dog model, DogRepository, DogService, and DogServiceImpl
-    * Implemented CRUD operations for Dog
-    * Created corresponding HTML pages for Dog CRUD
-    * Added Appointment model, AppointmentRepository, AppointmentService and AppointmentServiceImpl
-    * Implemented CRUD operations for Appointments
-    * Created corresponding HTML pages for Appointment CRUD
-    * All tables linked with foreign keys
-  * April 11 (20% done)
+April 15 (60% done)
+* Added feature that when a user registers a dog, that dog is registered to the current user who is logged in
+
+April 14 (55% done)
+* Completed CRUD operations for Appointment
+* All basic CRUD operations completed
+* Started implementing user registration
+
+April 13 (35% done)
+* Updated CRUD operations for Appointment but unable to save date and time
+
+April 12 (25-30% done)
+* Added Dog model, DogRepository, DogService, and DogServiceImpl
+* Implemented CRUD operations for Dog
+* Created corresponding HTML pages for Dog CRUD
+* Added Appointment model, AppointmentRepository, AppointmentService and AppointmentServiceImpl
+* Implemented CRUD operations for Appointments
+* Created corresponding HTML pages for Appointment CRUD
+* All tables linked with foreign keys
+* April 11 (20% done)
+
 Today I changed my project from a social media app to a scheduling app that allows users to schedule an appointment to have their dog walked.
 
 ## Total Progress
@@ -89,9 +97,11 @@ https://docs.google.com/document/d/1g-WW5qg5hG9iibcexZXdJLNDt_5qBlPq/edit
 ![Technical Architecture](./Technical_Architecture.PNG)
 
 ## Technical Challenges
-* The original idea for my project was to create a social media app for dogs, but I had difficulty implementing a lot of my ideas.  I decided to change my project to a scheduling app where users can request an appointment to have their dog walked.  This change allowed me to implement more of the features that were covered during the instruction of the course.
+* One of the technical challenges I had was 
 
 ## For the Future
 * Add functionality to be able to have multiple dog walkers and allow users to choose their dog walker.
+* Allow users to customize their profile with a picture of their dog(s)
 * Automate scheduling so that appointment scheduling does not overlap.
-* Add google maps API and java logic to determine if the user is within a maximum distance of an available 'walker'
+* Sync appointments with a user's calendar
+* Add Google Maps API and java logic to determine if the user is within a maximum distance of an available 'walker'

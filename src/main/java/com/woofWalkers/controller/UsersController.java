@@ -45,7 +45,7 @@ public class UsersController {
         }
         try {
             usersService.saveUser(user);
-            return "redirect:/";
+            return "redirect:/allUsers";
         } catch (Exception e) {
             System.out.println("error incurred");
         }
