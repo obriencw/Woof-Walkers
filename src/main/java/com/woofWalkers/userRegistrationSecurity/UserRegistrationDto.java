@@ -1,7 +1,5 @@
 package com.woofWalkers.userRegistrationSecurity;
 
-import jdk.jfr.MemoryAddress;
-
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -11,6 +9,8 @@ import javax.validation.constraints.Size;
         @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
         @FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match")
 })
+
+// Data transfer object for user registration including field constraints
 public class UserRegistrationDto {
 
     @NotEmpty
@@ -74,6 +74,7 @@ public class UserRegistrationDto {
                 '}';
     }
 
+    // getters and setters for UserRegistrationDto
     public String getFirstName() {
         return firstName;
     }

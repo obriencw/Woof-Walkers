@@ -1,10 +1,7 @@
 package com.woofWalkers.services;
 
 import com.woofWalkers.models.Appointment;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
-
 
 public interface AppointmentService {
     List<Appointment> getAllAppointments();

@@ -31,6 +31,7 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
         this.usersService = usersService;}
 
+    // handler method for viewing all appointments and custom queries for searching appointments
     @GetMapping("/allAppointments")
     public String getAllAppointments(Model model) {
         model.addAttribute("listAppointments", appointmentService.getAllAppointments());
@@ -38,6 +39,7 @@ public class AppointmentController {
         return "allAppointments";
     }
 
+    // handler method for new appointment form
     @GetMapping("/showNewAppointmentForm")
     public String showNewAppointmentForm(Model model) {
         Appointment appointment = new Appointment();
@@ -45,6 +47,7 @@ public class AppointmentController {
         return "new_appointment";
     }
 
+    // handler method for saving an appointment
     @PostMapping("/saveAppointment")
     public String saveAppointment(@ModelAttribute("appointment") @Valid Appointment appointment, BindingResult bindingResult, Principal principal) {
         User currentUser = usersService.findByEmail(principal.getName());
@@ -56,6 +59,8 @@ public class AppointmentController {
 
         return "redirect:/profile";
     }
+
+    // handler method for updating an appointment
     @GetMapping("/showAppointmentFormForUpdate/{id}")
     public String showAppointmentFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
@@ -64,6 +69,7 @@ public class AppointmentController {
         return "update_appointment";
     }
 
+    // handler method for updating appointment form for admin
     @GetMapping("/adminShowAppointmentFormForUpdate/{id}")
     public String adminShowAppointmentFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
@@ -72,12 +78,14 @@ public class AppointmentController {
         return "admin_update_appointment";
     }
 
+    // handler method for deleting an appointment
     @GetMapping("/deleteAppointment/{id}")
     public String deleteAppointment(@PathVariable(value = "id") long id) {
         this.appointmentService.deleteAppointmentById(id);
         return "redirect:/profile";
     }
 
+    // handler method for finding appointment(s) using custom queries
     @PostMapping("/findAppointments")
     public String findAppointment(@ModelAttribute QueryObj queryObj, Model model) {
 

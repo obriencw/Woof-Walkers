@@ -30,16 +30,20 @@ public class UsersServiceImpl implements UsersService{
     public void saveUser(User user)
     { usersRepository.save(user); }
 
-//    @Override
-//    public void updateUser(User user)
-//    { usersRepository.save(user);}
 
     @Override
     public User findByEmail(String email){
         return usersRepository.findByEmail(email);
     }
 
-
+    /**
+     * Returns a User object based on id argument
+     *
+     * If no user found for given id, print message
+     *
+     * @param id id of a user
+     * @return User object
+     * */
     @Override
     public User getUserById(long id) {
         Optional<User> optional = usersRepository.findById(id);

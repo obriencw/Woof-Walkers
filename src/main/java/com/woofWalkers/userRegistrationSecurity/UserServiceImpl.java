@@ -31,6 +31,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
+    /**
+     * Saves a user to the database
+     * Sets roles for user upon successful registration
+     *
+     * If no appointment found for given id, print message
+     *
+     * @param registration registration information from UserRegistrationDto
+     * @return saved user information to database
+     * */
     public User save(UserRegistrationDto registration){
         User user = new User();
         user.setFirstName(registration.getFirstName());

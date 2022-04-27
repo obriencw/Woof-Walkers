@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+// create Role table in database for user with the user's id
 @Entity
 public class Role {
     @Id

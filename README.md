@@ -14,14 +14,16 @@ Woof Walkers is an application that gives dog owners the ability to schedule an 
 
 
 ## Daily Progress
-**April 25 (95%)**
-* Added testing methods for repository and service
+**April 26 (100%)**
+* Added javaDoc comments
 
 **To-Do**
-* Add comments
-* Create zip file and submit to canvas
+* Final Presentation
 
-*April 22 (90%)
+April 25 (95%)
+* Added testing methods for repository and service
+
+April 22 (90%)
 * Added ability to assign multiple dogs to an appointment
 * Removed background from html pages that display tables so that they are easier to view
 * Updated Navbar navigation

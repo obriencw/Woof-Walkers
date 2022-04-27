@@ -16,6 +16,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
 
+    // security to limit browser access based on user's role(s)
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
@@ -52,15 +53,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/profile", true);
-
-//                .and()
-//                .logout()
-//                .invalidateHttpSession(true)
-//                .clearAuthentication(true)
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .logoutSuccessUrl("/logout")
-//                .permitAll();
-        // @formatter:on
     }
 
     @Bean
@@ -75,6 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
+    // override security to allow images to be displayed
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/images/**");

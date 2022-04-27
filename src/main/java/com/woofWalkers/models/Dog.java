@@ -1,10 +1,9 @@
 package com.woofWalkers.models;
 
-import com.woofWalkers.userRegistrationSecurity.User;
-
 import javax.persistence.*;
 import java.util.Objects;
 
+// Dog model for creating table columns in database
 @Entity
 @Table
 public class Dog {
@@ -29,6 +28,7 @@ public class Dog {
     public Dog() {
     }
 
+    // constructor for Dog model
     public Dog(Long id, String dogName, String dogBreed, String dogSex) {
         this.id = id;
         this.dogName = dogName;
@@ -36,6 +36,7 @@ public class Dog {
         this.dogSex = dogSex;
     }
 
+    // getters and setters for Dog model
     public Long getId() {
         return id;
     }
@@ -68,14 +69,7 @@ public class Dog {
         this.dogSex = dogSex;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-
+    // method used for testing whether a dog is added to the table in database
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,6 +78,7 @@ public class Dog {
         return id == dog.id && Objects.equals(dogName, dog.dogName) && Objects.equals(dogBreed, dog.dogBreed);
     }
 
+    // method used for testing whether a do is in the table
     @Override
     public int hashCode() {return Objects.hash(id, dogName, dogBreed, dogSex); }
 }

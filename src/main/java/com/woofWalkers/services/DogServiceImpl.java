@@ -22,7 +22,14 @@ public class DogServiceImpl implements DogService{
     public Dog saveDog(Dog dog)
     { return dogRepository.save(dog);}
 
-
+    /**
+     * Returns a Dog object based on id argument
+     *
+     * If no dog found for given id, print message
+     *
+     * @param id id of a dog
+     * @return Dog object
+     * */
     @Override
     public Dog getDogById(long id) {
         Optional<Dog> optional = dogRepository.findById(id);

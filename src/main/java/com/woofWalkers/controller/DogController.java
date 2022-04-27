@@ -1,12 +1,10 @@
 package com.woofWalkers.controller;
 
-import com.woofWalkers.models.Appointment;
 import com.woofWalkers.models.Dog;
 import com.woofWalkers.services.AppointmentService;
 import com.woofWalkers.services.DogService;
 import com.woofWalkers.services.UsersService;
 import com.woofWalkers.userRegistrationSecurity.User;
-import com.woofWalkers.userRegistrationSecurity.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,12 +28,14 @@ public class DogController {
         this.usersService = usersService; this.appointmentService = appointmentService;
     }
 
+    // handler method for viewing all dogs registered
     @GetMapping("/allDogs")
     public String getAllDogs(Model model) {
         model.addAttribute("listDogs", dogService.getAllDogs());
         return "allDogs";
     }
 
+    // handler method for adding a dog
     @GetMapping("/showNewDogForm")
     public String showNewDogForm(Model model) {
         Dog dog = new Dog();
@@ -43,6 +43,7 @@ public class DogController {
         return "new_dog";
     }
 
+    //  handler method for saving a dog to the logged in user
     @PostMapping("/saveDog")
     public String saveDog(@ModelAttribute("dog") @Valid Dog dog, BindingResult bindingResult, Principal principal) {
         User currentUser = usersService.findByEmail(principal.getName());
@@ -54,6 +55,8 @@ public class DogController {
         usersService.saveUser(currentUser);
         return "redirect:/profile";
     }
+
+    // handler method for updating a dog
     @GetMapping("/showDogFormForUpdate/{id}")
     public String showDogFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
@@ -62,6 +65,7 @@ public class DogController {
         return "update_dog";
     }
 
+    // handler method for updating a dog as an admin
     @GetMapping("/adminShowDogFormForUpdate/{id}")
     public String adminShowDogFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
@@ -70,6 +74,8 @@ public class DogController {
         return "admin_update_dog";
     }
 
+    // handler method for deleting a dog
+    // deletes a dog id from the users id to satisfy foreign key constraint
     @GetMapping("/deleteDog/{id}")
     public String deleteDog(@PathVariable(value = "id") long id, Principal principal) {
         User user = usersService.findByEmail(principal.getName());

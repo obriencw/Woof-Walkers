@@ -8,12 +8,22 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
     private String firstFieldName;
     private String secondFieldName;
 
+    // initialize variables for fields to be compared
     @Override
     public void initialize(final FieldMatch constraintAnnotation) {
         firstFieldName = constraintAnnotation.first();
         secondFieldName = constraintAnnotation.second();
     }
 
+    /**
+     * Logic for checking if two fields are matching
+     *
+     * If fields match, return true
+     *
+     * @param value value of final Object
+     * @param context context of final ConstraintValidatorContext
+     * @return true
+     * */
     @Override
     public boolean isValid(final Object value, final ConstraintValidatorContext context) {
         try {

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -25,12 +24,14 @@ public class UsersController {
         this.appointmentService = appointmentService;
     }
 
+    // handler method for viewing all registered users
     @GetMapping("/allUsers")
     public String getAllUsers(Model model) {
         model.addAttribute("listUsers", usersService.getAllUsers());
         return "index1";
     }
 
+    // handler method for registering a new user
     @GetMapping("/showNewUserForm")
     public String showNewUserForm(Model model) {
         User user = new User();
@@ -38,6 +39,7 @@ public class UsersController {
         return "new_user";
     }
 
+    // handler method for saving a user
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -52,20 +54,7 @@ public class UsersController {
         return "/allUsers";
     }
 
-//    @PostMapping("/updateUser")
-//    public String updateUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()) {
-//            return "new_user";
-//        }
-//        try {
-//            usersService.saveUser(user);
-//            return "redirect:/";
-//        } catch (Exception e) {
-//            System.out.println("error incurred");
-//        }
-//        return "/";
-//    }
-
+    // handler method for updating a user's information by id
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
@@ -74,12 +63,15 @@ public class UsersController {
         return "update_user";
     }
 
+    // handler method for deleting a user
     @GetMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable(value = "id") long id) {
         this.usersService.deleteUserById(id);
         return "redirect:/allUsers";
     }
 
+    // handler method for viewing a user's profile
+    // displays user's dog(s) and user's appointment(s)
     @GetMapping("/profile")
     public String getUserDogs(Model model, Principal principal) {
         User currentUser = usersService.findByEmail(principal.getName());

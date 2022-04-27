@@ -23,6 +23,14 @@ public class AppointmentServiceImpl implements AppointmentService{
     @Override
     public Appointment saveAppointment(Appointment appointment) {return appointmentRepository.save(appointment);}
 
+    /**
+     * Returns an Appointment object based on id argument
+     *
+     * If no appointment found for given id, print message
+     *
+     * @param id id of an appointment
+     * @return Appointment object
+     * */
     @Override
     public Appointment getAppointmentById(long id) {
         Optional<Appointment> optional = appointmentRepository.findById(id);

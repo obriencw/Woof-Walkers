@@ -1,11 +1,11 @@
 package com.woofWalkers.models;
 
 import com.woofWalkers.userRegistrationSecurity.User;
-
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
+// Appointment model for creating table columns in database
 @Entity
 @Table(name = "appointment")
 public class Appointment {
@@ -14,9 +14,6 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-//    @ManyToOne
-//    @JoinColumn(name = "userId")
-//    private User user;
 
     @Column(name = "date")
     private String appointmentDate;
@@ -37,6 +34,7 @@ public class Appointment {
     public Appointment() {
     }
 
+    // constructor for Appointment model
     public Appointment(long id, String appointmentDate, String appointmentTime, Set<Dog> dogs, String comments, User user) {
         this.id = id;
         this.appointmentDate = appointmentDate;
@@ -46,6 +44,7 @@ public class Appointment {
         this.user = user;
     }
 
+    // getters and setters for Appointment model
     public long getId() {
         return id;
     }
@@ -94,6 +93,7 @@ public class Appointment {
         this.user = user;
     }
 
+    // method used for testing whether an appointment is added to the table in database
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,6 +102,7 @@ public class Appointment {
         return id == appointment.id && Objects.equals(appointmentDate, appointment.appointmentDate) && Objects.equals(appointmentTime, appointment.appointmentTime);
     }
 
+    // method used for testing whether an appointment is in the table
     @Override
     public int hashCode() {return Objects.hash(id, appointmentDate, appointmentTime); }
 }

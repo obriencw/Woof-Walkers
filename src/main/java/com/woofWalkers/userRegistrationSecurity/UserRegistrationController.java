@@ -1,7 +1,6 @@
 package com.woofWalkers.userRegistrationSecurity;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +24,17 @@ public class UserRegistrationController {
         return "registration";
     }
 
+    /**
+     * Returns to registration webpage if email is already registered
+     * Returns to profile webpage if registration is successful
+     *
+     * If email is already registered, print message
+     *
+     * @param userDto Model Attribute of "user" is Valid UserRegistrationDto
+     * @param result stores the result of validation
+     * @return registration html page
+     * @return profile html page
+     * */
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
 

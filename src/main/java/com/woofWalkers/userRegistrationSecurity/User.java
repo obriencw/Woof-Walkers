@@ -1,9 +1,6 @@
 package com.woofWalkers.userRegistrationSecurity;
 
-import com.woofWalkers.models.Appointment;
 import com.woofWalkers.models.Dog;
-import com.woofWalkers.userRegistrationSecurity.Role;
-
 import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.Collection;
@@ -11,6 +8,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+// User model for creating table columns in database
 @Entity
 @Table(name = "user", uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
 public class User {
@@ -65,12 +63,11 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
-//    @Column(name = "confirmPassword")
-//    private String confirmPassword;
 
     public User() {
     }
 
+    // constructor for User model
     public User(Long id, String firstName, String lastName, String email, String password, String address, String city, String state, String zipcode, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
@@ -98,6 +95,7 @@ public class User {
         this.roles = roles;
     }
 
+    // getters and setters for User model
     public Long getId() {
         return id;
     }
@@ -158,14 +156,6 @@ public class User {
                 '}';
     }
 
-//    public String getConfirmPassword() {
-//        return confirmPassword;
-//    }
-//
-//    public void setConfirmPassword(String confirmPassword) {
-//        this.confirmPassword = confirmPassword;
-//    }
-
     public String getAddress() {
         return address;
     }
@@ -206,6 +196,7 @@ public class User {
         this.zipcode = zipcode;
     }
 
+    // method for testing whether a user is added to the table in the database
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -214,6 +205,7 @@ public class User {
         return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName);
     }
 
+    // method for testing whether a user is in the table
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, email);

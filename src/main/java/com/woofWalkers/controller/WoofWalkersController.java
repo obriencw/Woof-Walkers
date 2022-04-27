@@ -30,9 +30,8 @@ public class WoofWalkersController {
         return "user/index";
     }
 
-//    @GetMapping("/profile")
-//   public String profile() {return "profile";}
-
+    // handler method for logging out a user
+    // terminates the session upon logout
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         HttpSession httpSession = request.getSession();

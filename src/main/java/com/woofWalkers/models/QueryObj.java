@@ -1,5 +1,6 @@
 package com.woofWalkers.models;
 
+// QueryObj model for custom queries
 public class QueryObj {
     private String queryName = "";
 
@@ -7,6 +8,7 @@ public class QueryObj {
 
     private String queryCity = "";
 
+    // getters and setters for custom queries
     public String getQueryName() {
         return queryName;
     }
